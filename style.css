@@ -12,7 +12,7 @@ body {
 }
 h1, h2, h3 {
     font-family: 'Playfair Display', serif;
-    color: #3B5A3D;
+    color: #424D2D;
     margin-bottom: 3rem;
 }
 a {
@@ -31,7 +31,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    background: #FFFFFF;
+    background: #424D2D;
     padding: 15px 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     z-index: 1000;
@@ -55,6 +55,7 @@ header {
     border: none;
     font-size: 1.8rem;
     cursor: pointer;
+    color: #FFFFFF;
 }
 nav {
     margin-left: auto;
@@ -68,15 +69,16 @@ nav {
     padding: 5px 10px;
     font-weight: 600;
     transition: color 0.3s;
+    color: #FFFFFF;
 }
 .nav-links a:hover {
-    color: #7A5C41;
+    color: #f5f0e3;
 }
 
 /* Hero */
 .hero {
     height: 100vh;
-    background: url('imagesbirdhunter/bird15.jpg') center/cover no-repeat;
+    background: url('images/birdhunter-accueil.jpg') center/cover no-repeat;
     position: relative;
     display: flex;
     align-items: center;
@@ -109,7 +111,7 @@ nav {
     margin-bottom: 2rem;
 }
 .hero-content .btn {
-    background-color: #7A5C41;
+    background-color: #424D2D;
     color: #FFFFFF;
     font-size: 1.2rem;
     padding: 0.75rem 2rem;
@@ -120,22 +122,21 @@ nav {
     transition: background-color 0.3s ease;
 }
 .hero-content .btn:hover {
-    background-color: #5C422F;
+    background-color: #2f391f;
 }
 
 .btn {
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
-    background: #7A5C41;
+    background: #424D2D;
     color: #FFFFFF;
     border-radius: 5px;
     transition: background 0.3s;
 }
 .btn:hover {
-    background: #5C422F;
+    background: #2f391f;
 }
-
 /* Sections */
 section {
     padding: 80px 0;
