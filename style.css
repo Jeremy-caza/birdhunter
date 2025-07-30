@@ -76,7 +76,7 @@ nav {
 /* Hero */
 .hero {
     height: 100vh;
-    background: url('images/birdhunter-accueil.jpg') center/cover no-repeat;
+    background: url('imagesbirdhunter/bird9.jpg') center/cover no-repeat;
     position: relative;
     display: flex;
     align-items: center;
@@ -383,7 +383,7 @@ body {
 /* Hero-style pour section événement (ex. journée de chasse) */
 .events.hero-style {
   position: relative;
-  background: url('images/birdhunter-chasse.jpg') center/cover no-repeat;
+  background: url('imagesbirdhunter/bird10.jpg') center/cover no-repeat;
   color: white;
   padding: 100px 0;
   z-index: 1;
