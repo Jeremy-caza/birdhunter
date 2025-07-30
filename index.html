@@ -1,1 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bird Hunter - Domaine de Chasse Privée</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="container header-content">
+    <div class="logo">
+      <a href="#accueil">
+        <img src="images/logo-birdhunter.jpg" alt="Bird Hunter Domaine de Chasse">
+      </a>
+    </div>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#domaine">Le Domaine</a></li>
+        <li><a href="#offres">Nos Offres</a></li>
+        <li><a href="#organisation">Organisation</a></li>
+        <li><a href="#entrainement">Entraînement & Migrateurs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
+<section id="accueil" class="hero">
+  <div class="hero-content fade-in">
+    <h1>Bird Hunter</h1>
+    <p>Domaine de chasse privée à Tournay – 120 hectares de passion</p>
+    <a href="#domaine" class="btn">Découvrir</a>
+  </div>
+</section>
+
+<section id="domaine" class="about fade-in">
+  <div class="container">
+    <h2>Le Domaine</h2>
+    <p>Bird Hunter, c’est 120 hectares de nature sauvage et aménagée, un terrain idéal pour les amoureux de la chasse. Bois de feuillus, pinèdes, plaines, sources naturelles : un biotope varié pensé pour la chasse au petit gibier. Chaque parcours a été conçu pour vous offrir à la fois immersion et sécurité.</p>
+  </div>
+</section>
+
+<section id="offres" class="espaces">
+  <div class="container">
+    <h2 class="fade-in">Nos Offres de Chasse</h2>
+    <div class="space-grid">
+      <div class="space fade-in">
+        <img src="images/chasse-journee.jpg" alt="Journée de chasse">
+        <h3>Chasse Journée & Demi-journée</h3>
+        <p>Lundi, Mercredi, Samedi – 8 fusils max<br>Perdreaux – Faisans<br>7/8 pièces par fusil (journée)<br>3/4 pièces (demi-journée)<br><strong>220 €</strong> journée | <strong>120 €</strong> demi-journée (hors repas)</p>
+      </div>
+      <div class="space fade-in">
+        <img src="images/action-chasse.jpg" alt="Action de chasse annuelle">
+        <h3>Action de Chasse Annuelle</h3>
+        <p>16 jours (ou demi-action : 8 jours)<br>Perdreaux – Faisans – Lapins<br>Journée gros gibier incluse<br>Postes migrateurs janv./fév.<br><strong>2890 €</strong> | <strong>1500 €</strong> demi-action (repas inclus)</p>
+      </div>
+      <div class="space fade-in">
+        <img src="images/weekend-chasse.jpg" alt="Week-end Chasse">
+        <h3>Week-end Bird Hunter</h3>
+        <p>2 jours de chasse + hébergement + pension complète<br>10 pièces par jour env. | 8 fusils max<br><strong>650 €</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="organisation" class="events hero-style">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="events-content">
+      <h2>Organisation d'une Journée</h2>
+      <p>8h : Petit-déjeuner Campagnard<br>9h : Départ à la chasse<br>12h30 : Déjeuner à la Bergerie<br>14h : Reprise de la chasse<br>17h : Tableau de chasse et cocktail apéritif<br>Des postes aménagés sont disponibles pour les personnes à mobilité réduite.</p>
+    </div>
+  </div>
+</section>
+
+<section id="entrainement" class="espaces">
+  <div class="container">
+    <h2 class="fade-in">Entraînement & Chasse Migrateur</h2>
+    <div class="space-grid">
+      <div class="space fade-in">
+        <img src="images/entrainement-chien.jpg" alt="Entraînement de chien">
+        <h3>Entraînement Chiens</h3>
+        <p>De juin à septembre<br>Parc 3 hectares (cailles, faisans, perdrix)<br>2 personnes max – 1 chien à la fois<br><strong>40 €</strong> la session de 2h</p>
+      </div>
+      <div class="space fade-in">
+        <img src="images/chasse-migrateur.jpg" alt="Chasse au migrateur">
+        <h3>Chasse au Migrateur</h3>
+        <p>Décembre à février<br>Palombes & bécasses<br>4 chasseurs max par poste<br><strong>200 €</strong> par poste (repas non inclus)</p>
+      </div>
+      <div class="space fade-in">
+        <img src="images/approche-grosgibier.jpg" alt="Chasse à l'approche">
+        <h3>Chasse à l’Approche</h3>
+        <p>Juin à octobre<br>Avec accompagnement d’un garde<br>Chevreuil : <strong>200 €</strong><br>Sanglier : <strong>300 €</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container contact-wrapper fade-in">
+    <div class="map">
+      <iframe src="https://www.google.com/maps?q=2+Chem.+de+la+Lande,+65190+Tournay&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="form-area">
+      <form>
+        <label>Nom
+          <input type="text" name="nom" required>
+        </label>
+        <label>Email
+          <input type="email" name="email" required>
+        </label>
+        <label>Message
+          <textarea name="message" rows="5" required></textarea>
+        </label>
+        <button type="submit" class="btn">Envoyer</button>
+      </form>
+      <div class="coords">
+        <p><strong>📍 2 Chem. de la Lande, 65190 Tournay</strong></p>
+        <p><strong>📞 <a href="tel:+33609276288">06 09 27 62 88</a></strong></p>
+        <p><strong>✉️ <a href="mailto:birdhunterdu65@gmail.com">birdhunterdu65@gmail.com</a></strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-content">
+    <p>&copy; <span id="year"></span> Bird Hunter - Domaine de Chasse Privée</p>
+    <div class="footer-links">
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="https://www.facebook.com" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com" target="_blank">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
