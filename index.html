@@ -56,7 +56,7 @@
     /* ===== Sections ===== */
     section{padding:80px 0}
     .about{background:#F5F0E3;text-align:center}
-    .about p{max-width:800px;margin:auto;line-height:1.8;padding:20px 0;font-size:1.1rem;font-family:'Georgia',serif}
+    .about p{max-width:1000px;margin:auto;line-height:1.8;padding:20px 0;font-size:1.1rem;font-family:'Georgia',serif}
 
     .espaces .space-grid{display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
     .space img{width:100%;border-radius:10px}
@@ -79,14 +79,15 @@
     .bergerie::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.5);z-index:1}
     .bergerie .container{position:relative;z-index:2}
     .bergerie h2{font-size:3rem;margin-bottom:1.5rem;color:#FFF}
-    .bergerie p{font-size:1.2rem;max-width:800px;margin:0 auto 2rem}
+    .bergerie p{font-size:1.2rem;max-width:1000px;margin:0 auto 2rem}
     .bergerie .btn{margin:0 10px}
 
     /* ===== Section Avis ===== */
     .reviews{background:#F5F0E3}
     .reviews h2{text-align:center}
     .avis-carousel{position:relative;max-width:100%;margin:auto;padding:40px 0;display:flex;align-items:center;justify-content:center}
-    .carousel-track-container{overflow-x:auto;width:100%;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+    .carousel-track-container{overflow-x:auto;width:100%;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;cursor:grab}
+    .carousel-track-container.dragging{cursor:grabbing}
     .carousel-track{display:flex;gap:20px;transition:transform .5s ease;flex-wrap:nowrap;padding:0 10px}
     .avis-card{flex:0 0 33.33%;max-width:33.33%;box-sizing:border-box;padding:20px;background:#FFF;border-radius:15px;box-shadow:0 4px 12px rgba(0,0,0,.1);text-align:center;scroll-snap-align:start}
     .avis-card p{font-size:1rem;font-style:italic;margin-bottom:10px}
@@ -284,11 +285,6 @@
           </div>
         </div>
       </div>
-
-      <div class="carousel-controls" aria-label="Contrôles du carrousel">
-        <button class="carousel-btn prev" aria-label="Avis précédents">‹</button>
-        <button class="carousel-btn next" aria-label="Avis suivants">›</button>
-      </div>
     </div>
   </section>
 
@@ -383,16 +379,14 @@
     // ===== Footer year =====
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ===== Carrousel Avis (boutons + swipe natif) =====
+    // ===== Carrousel Avis (swipe natif + drag souris) =====
     (function(){
       const track = document.querySelector('.carousel-track');
       const container = document.querySelector('.carousel-track-container');
-      const prevBtn = document.querySelector('.carousel-btn.prev');
-      const nextBtn = document.querySelector('.carousel-btn.next');
-      if (!track || !container || !prevBtn || !nextBtn) return;
+      if (!track || !container) return;
 
       let currentIndex = 0;
-      const GAP = 20; // doit matcher le gap CSS
+      const GAP = 20;
 
       function cardWidth(){
         const card = track.querySelector('.avis-card');
@@ -400,7 +394,7 @@
         const style = window.getComputedStyle(card);
         const w = card.getBoundingClientRect().width;
         const ml = parseFloat(style.marginLeft)||0; const mr = parseFloat(style.marginRight)||0;
-        return w + ml + mr + GAP - 10; // ajustement doux
+        return w + ml + mr + GAP - 10;
       }
 
       function visibleCards(){
@@ -419,13 +413,28 @@
         track.style.transform = `translateX(-${translate}px)`;
       }
 
-      nextBtn.addEventListener('click', () => { currentIndex = Math.min(currentIndex + 1, maxIndex()); updateCarousel(); });
-      prevBtn.addEventListener('click', () => { currentIndex = Math.max(currentIndex - 1, 0); updateCarousel(); });
+      // Drag souris (desktop)
+      let isDown = false, startX = 0, scrollLeft = 0;
+      container.addEventListener('mousedown', (e) => {
+        isDown = true;
+        container.classList.add('dragging');
+        startX = e.pageX - container.offsetLeft;
+        scrollLeft = container.scrollLeft;
+      });
+      container.addEventListener('mouseleave', () => { isDown = false; container.classList.remove('dragging'); });
+      container.addEventListener('mouseup', () => { isDown = false; container.classList.remove('dragging'); });
+      container.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - container.offsetLeft;
+        const walk = (x - startX);
+        container.scrollLeft = scrollLeft - walk;
+      });
 
       // Mise à jour à la taille
       window.addEventListener('resize', () => { currentIndex = Math.min(currentIndex, maxIndex()); updateCarousel(); });
 
-      // Synchroniser l'index quand l'utilisateur scrolle (swipe natif sur mobile)
+      // Sync index quand l'utilisateur scrolle
       let scrollTimeout;
       container.addEventListener('scroll', () => {
         clearTimeout(scrollTimeout);
@@ -435,12 +444,6 @@
           currentIndex = Math.min(Math.max(0, idx), maxIndex());
         }, 80);
       }, { passive: true });
-
-      // Navigation clavier (accessibilité)
-      container.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') { nextBtn.click(); }
-        if (e.key === 'ArrowLeft') { prevBtn.click(); }
-      });
 
       // Init
       updateCarousel();
