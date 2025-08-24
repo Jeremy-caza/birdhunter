@@ -114,6 +114,12 @@
     footer{background:#3B5A3D;color:#FFF;padding:20px 0}
     .footer-content{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
     .footer-links a{margin:0 10px;color:#FFF}
+.footer-links{display:flex;gap:14px;align-items:center}
+.footer-links .social-link{display:inline-flex;line-height:0}
+.footer-links .social-ico{height:24px;width:auto;display:block;transition:opacity .2s,transform .2s}
+.footer-links .social-link:hover .social-ico{opacity:.9;transform:translateY(-1px)}
+/* Si ton PNG est noir et que tu le veux blanc sur fond vert (optionnel, pour icône monochrome uniquement) */
+/* .footer-links .social-ico{filter:brightness(0) invert(1)} */
 
     /* ===== Animations ===== */
     .fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s ease-out,transform .6s ease-out}
@@ -333,8 +339,8 @@ Sur demande, possibilité d’accompagnement pendant la journée ou la demi-jour
       <p>&copy; <span id="year"></span> Bird Hunter - Domaine de Chasse Privée</p>
       <div class="footer-links">
         <a href="mentions-legales.html">Mentions légales</a>
-        <a href="https://www.facebook.com/people/Bird-Hunter/61558949325470/" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://www.instagram.com/birdhunter.65/" target="_blank" rel="noopener">Instagram</a>
+         <a href="https://www.facebook.com/people/Bird-Hunter/61558949325470/" target="_blank" rel="noopener" aria-label="Facebook" class="social-link">
+    <img src="imagesbirdhunter/facebook.png" alt="Facebook" class="social-ico" width="24" height="24"></a>
       </div>
     </div>
   </footer>
