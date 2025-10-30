@@ -134,6 +134,32 @@
     .coords a{color:#7A5C41;text-decoration:underline;font-weight:bold}
     .coords p{margin:10px 0}
 
+    /* ===== Contact card (Bird Hunter) ===== */
+.contact-card{background:#fff;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.08);padding:22px}
+.contact-card h3{color:#424D2D;margin:0 0 8px}
+.contact-card p{margin:0 0 16px}
+.contact-buttons{display:flex;flex-direction:column;gap:12px;margin:14px 0 8px}
+.btn-call,.btn-mail{display:inline-flex;align-items:center;gap:10px;justify-content:center;padding:14px 18px;border-radius:999px;font-weight:800}
+.btn-call{background:#424D2D;color:#fff;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.btn-call:hover{filter:brightness(1.05)}
+.btn-mail{background:#fff;color:#424D2D;border:2px solid #424D2D}
+.btn-mail:hover{background:#f7f7f7}
+.btn-call svg,.btn-mail svg{width:22px;height:22px;display:block}
+
+/* Liens alternatives e-mail */
+.alt-mail{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.alt-mail a{display:inline-block;padding:6px 10px;border:1px solid rgba(66,77,45,.25);border-radius:999px;font-size:.95rem;color:#424D2D}
+
+/* Coordonnées en plus grand */
+.coords-big{margin-top:16px;text-align:center;line-height:1.9}
+.coords-big a{color:#424D2D;text-decoration:underline;font-weight:700}
+
+/* Note d’excuse */
+.note-alert{position:relative;margin:16px 0 4px;padding:12px 38px 12px 12px;border:1px solid rgba(66,77,45,.25);border-radius:12px;background:#FAFDF7}
+.note-alert strong{color:#424D2D}
+.note-close{position:absolute;right:10px;top:10px;border:0;background:transparent;font-size:20px;cursor:pointer;color:#424D2D;line-height:1}
+@media (max-width:768px){.contact-buttons{gap:10px}.btn-call,.btn-mail{width:100%}}
+
     /* ===== Footer ===== */
     footer{background:#3B5A3D;color:#FFF;padding:20px 0}
     .footer-content{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
@@ -336,24 +362,44 @@ Sur demande, possibilité d’accompagnement pendant la journée ou la demi-jour
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2253.7135289273624!2d0.2829830749918566!3d43.18861698235657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a9cbe0061fe1f5%3A0x3dc95c683987c353!2sBird%20Hunter!5e1!3m2!1sfr!2sfr!4v1753882761629!5m2!1sfr!2sfr" width="600" height="450" style="border:0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <div class="form-area">
-        <form>
-          <label>Nom
-            <input type="text" name="nom" required />
-          </label>
-          <label>Email
-            <input type="email" name="email" required />
-          </label>
-          <label>Message
-            <textarea name="message" rows="5" required></textarea>
-          </label>
-          <button type="submit" class="btn">Envoyer</button>
-        </form>
-        <div class="coords">
-          <p><strong>📍 Chem. de la Lande, 65190 Tournay</strong></p>
-          <p><strong>📞 <a href="tel:+33609276288">06 09 27 62 88</a></strong></p>
-          <p><strong>✉️ <a href="mailto:birdhunterdu65@gmail.com">birdhunterdu65@gmail.com</a></strong></p>
-        </div>
-      </div>
+       <div class="contact-card">
+  <h3>Contactez-nous</h3>
+  <p>Pour toute question, devis ou réservation : <br>
+    <strong>appelez-nous</strong> sur le numéro ci-dessous ou <strong>écrivez-nous</strong> par e-mail.
+  </p>
+
+  <div class="contact-buttons">
+    <a class="btn-call" href="tel:+33609276288" aria-label="Appeler Bird Hunter">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.11.37 2.31.57 3.58.57a1 1 0 0 1 1 1V21a1 1 0 0 1-1 1C10.07 22 2 13.93 2 3a1 1 0 0 1 1-1h3.49a1 1 0 0 1 1 1c0 1.27.2 2.47.57 3.58a1 1 0 0 1-.24 1.01l-2.2 2.2z"/></svg>
+      Appeler : 06 09 27 62 88
+    </a>
+
+    <a class="btn-mail" href="mailto:birdhunterdu65@gmail.com" aria-label="Écrire un email à Bird Hunter">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
+      Écrire : birdhunterdu65@gmail.com
+    </a>
+  </div>
+
+  <!-- Alternatives universelles (ouvre le webmail si l'appli n’est pas installée) -->
+  <div class="alt-mail">
+    <a href="https://mail.google.com/mail/?view=cm&to=birdhunterdu65@gmail.com" target="_blank" rel="noopener">Ouvrir Gmail Web</a>
+    <a href="https://outlook.office.com/mail/deeplink/compose?to=birdhunterdu65@gmail.com" target="_blank" rel="noopener">Ouvrir Outlook Web</a>
+  </div>
+
+  <!-- Note d’excuse (fermant) -->
+  <div class="note-alert" id="note-outage">
+    <button class="note-close" aria-label="Fermer l’information" type="button">×</button>
+    <strong>Information importante :</strong> en raison d’un incident technique, toute demande envoyée entre le <strong>26 septembre</strong> et le <strong>30 octobre</strong> n’a pas été transmise.  
+    Si vous êtes concerné(e), merci de <strong>nous renvoyer votre message</strong> ou de <strong>nous appeler directement</strong>.  
+    Toutes nos excuses pour la gêne occasionnée.
+  </div>
+
+  <div class="coords-big">
+    <p><strong>📍 Chem. de la Lande, 65190 Tournay</strong></p>
+    <p><strong>📞 <a href="tel:+33609276288">06 09 27 62 88</a></strong></p>
+    <p><strong>✉️ <a href="mailto:birdhunterdu65@gmail.com">birdhunterdu65@gmail.com</a></strong></p>
+  </div>
+</div>
     </div>
   </section>
 
@@ -524,6 +570,15 @@ Sur demande, possibilité d’accompagnement pendant la journée ou la demi-jour
   {"@type":"Question","name":"Comment réserver ?","acceptedAnswer":{"@type":"Answer","text":"Contactez-nous via le formulaire du site ou par téléphone pour connaître les disponibilités."}}
  ]
 }
+</script>
+  
+<script>
+  // Fermer la note d’excuse
+  (function(){
+    const n = document.getElementById('note-outage');
+    const b = n ? n.querySelector('.note-close') : null;
+    b && b.addEventListener('click', ()=> n.remove());
+  })();
 </script>
 
 
